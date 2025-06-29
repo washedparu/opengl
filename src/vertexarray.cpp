@@ -26,7 +26,6 @@ void Core::VertexArray::UnBind() const {
 void Core::VertexArray::addBuffer(const VertexBuffer& vb, const BufferLayout& layout) {
     Bind();
     vb.Bind();
-
     const auto& elements = layout.GetElements();
     uintptr_t offset = 0;
     

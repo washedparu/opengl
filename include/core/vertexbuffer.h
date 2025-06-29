@@ -11,6 +11,6 @@ namespace Core {
         void Bind() const;
         void UnBind() const;
     private:
-        u_int mRendererID;
+        uint mRendererID;
     };
 }

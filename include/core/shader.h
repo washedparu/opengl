@@ -19,15 +19,15 @@ namespace Core {
         void Bind() const;
         void UnBind() const;
         
-        void SetUniform1f(const std::string& name, glm::vec1 vec);
-        void SetUniform2f(const std::string& name, glm::vec2 vec);
-        void SetUniform3f(const std::string& name, glm::vec3 vec);
-        void SetUniform4f(const std::string& name, glm::vec4 vec);
+        void SetUniform1f(const std::string& name, const glm::vec1& vec);
+        void SetUniform2f(const std::string& name, const glm::vec2& vec);
+        void SetUniform3f(const std::string& name, const glm::vec3& vec);
+        void SetUniform4f(const std::string& name, const glm::vec4& vec);
         
-        void SetUniform1i(const std::string& name, glm::vec1 vec);
-        void SetUniform2i(const std::string& name, glm::vec2 vec);
-        void SetUniform3i(const std::string& name, glm::vec3 vec);
-        void SetUniform4i(const std::string& name, glm::vec4 vec);
+        void SetUniform1i(const std::string& name, const glm::vec1& vec);
+        void SetUniform2i(const std::string& name, const glm::vec2& vec);
+        void SetUniform3i(const std::string& name, const glm::vec3& vec);
+        void SetUniform4i(const std::string& name, const glm::vec4& vec);
 
         void SetUniformMat4(const std::string& name, glm::mat4);
 

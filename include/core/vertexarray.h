@@ -15,6 +15,6 @@ namespace Core {
         void addBuffer(const VertexBuffer& vb, const BufferLayout& layout);
 
     private:
-        u_int mRendererID;
+        uint mRendererID;
     };
 }

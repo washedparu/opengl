@@ -5,15 +5,15 @@
 namespace Core {
     class IndexBuffer {
     public:
-        IndexBuffer(const void* data, u_int count);
+        IndexBuffer(const void* data, uint count);
         ~IndexBuffer();
 
         void Bind() const;
         void UnBind() const;
-        u_int GetCount() const;
+        uint GetCount() const;
 
     private:
-        u_int mRendererID;
-        u_int mCount;
+        uint mRendererID;
+        uint mCount;
     };
 }

@@ -11,6 +11,8 @@ project("opengl")
 
 set(SRC_DIR "${CMAKE_SOURCE_DIR}/src")
 set(INCLUDE_DIR "${CMAKE_SOURCE_DIR}/include")
+set(EXTERNAL_DIR "${CMAKE_SOURCE_DIR}/external")
+
 
 file(GLOB_RECURSE SRC_FILES CONFIGURE_DEPENDS
 	${SRC_DIR}/*.cpp
@@ -20,6 +22,7 @@ add_executable(${PROJECT_NAME} ${SRC_FILES})
 
 target_include_directories(opengl PUBLIC 
 	"${INCLUDE_DIR}"
+    "${EXTERNAL_DIR}"
 )
 
 find_package(OpenGL REQUIRED)

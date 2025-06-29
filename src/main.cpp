@@ -4,16 +4,21 @@
 #include "core/bufferlayout.h"
 #include "core/indexbuffer.h"
 #include "core/shader.h"
-
+#include "core/texture.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+/*
+    TODO: follow up with the cherno and how the FUCK he made that 'testing framework'
+*/
+
 int main() {
     using namespace Core;
+    using namespace glm;
 
     GLFWwindow* window;
-    int windowWidth = 1000, windowHeight = 800;
+    const int windowWidth = 1000, windowHeight = 800;
 
     if(!glfwInit()) {
         fprintf(stderr, "Failed to intialize glfw\n");
@@ -41,11 +46,12 @@ int main() {
 
 
 
-    float vertices[8] = {
-        -0.5f, -0.5f,
-         0.5f, -0.5f,
-         0.5f,  0.5f,
-        -0.5f,  0.5f
+    float vertices[16] = {
+        // pos          // texcoord
+        -0.5f, -0.5f,   0.0f, 0.0f,
+         0.5f, -0.5f,   1.0f, 0.0f,
+         0.5f,  0.5f,   1.0f, 1.0f,
+        -0.5f,  0.5f,   0.0f, 1.0f
     };
 
     uint indices[6] = {
@@ -59,6 +65,7 @@ int main() {
     BufferLayout layout;
 
     layout.push<float>(2);
+    layout.push<float>(2);
 
     va.addBuffer(vb, layout);
 
@@ -68,11 +75,13 @@ int main() {
         "../res/shaders/vert.glsl",
         "../res/shaders/frag.glsl"
     );
-
     shader.Bind();
-    shader.SetUniform4f("uColor", glm::vec4(1.0f, 0.5f, 0.2f, 1.0f));
-
-
+    
+    Texture texture("../res/textures/paru.png");
+    
+    texture.Bind(0); // sloth's 0
+    shader.SetUniform1i("uTexture", vec1(0));
+    shader.SetUniform2f("uOffset", vec2(0.0f, 0.0f));
     Renderer renderer;
 
     glfwSetFramebufferSizeCallback(window, [](GLFWwindow* window, int width, int height) {
