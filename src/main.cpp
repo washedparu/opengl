@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-// TODO: 
-/*
-a different shader class
-and keep learning fuckhead.
-*/
-=======
 #include "core/renderer.h"
 #include "core/vertexarray.h"
 #include "core/vertexbuffer.h"
@@ -15,7 +8,6 @@ and keep learning fuckhead.
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
->>>>>>> dd92d0c (i foking did it)
 
 int main() {
     using namespace Core;
