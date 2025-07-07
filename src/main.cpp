@@ -77,7 +77,7 @@ int main() {
     );
     shader.Bind();
     
-    Texture texture("../res/textures/paru.png");
+    Texture texture("../res/textures/grass.jpg");
     
     texture.Bind(0); // sloth's 0
     shader.SetUniform1i("uTexture", vec1(0));
