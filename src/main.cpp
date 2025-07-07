@@ -9,13 +9,15 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+
 /*
-    TODO: follow up with the cherno and how the FUCK he made that 'testing framework'
+    TODO:
+    1/- now you have imgui, why not fucking using it??
+    2/- follow up with the cherno and how the FUCK he made that 'testing framework'
 */
 
 int main() {
-    using namespace Core;
-    using namespace glm;
+    using namespace glm; // why not? i mean i fucking hate seen stuff like: 'glm::vec2(...)'
 
     GLFWwindow* window;
     const int windowWidth = 1000, windowHeight = 800;
@@ -59,30 +61,30 @@ int main() {
         2, 3, 0
     };
     
-    VertexArray va; 
-    VertexBuffer vb(vertices, sizeof(vertices));
+    Core::VertexArray va; 
+    Core::VertexBuffer vb(vertices, sizeof(vertices));
 
-    BufferLayout layout;
+    Core::BufferLayout layout;
 
     layout.push<float>(2);
     layout.push<float>(2);
 
     va.addBuffer(vb, layout);
 
-    IndexBuffer ib(indices, sizeof(indices) / sizeof(uint));
+    Core::IndexBuffer ib(indices, sizeof(indices) / sizeof(uint));
     
-    Shader shader(
+    Core::Shader shader(
         "../res/shaders/vert.glsl",
         "../res/shaders/frag.glsl"
     );
     shader.Bind();
     
-    Texture texture("../res/textures/grass.jpg");
+    Core::Texture texture("../res/textures/grass.jpg");
     
     texture.Bind(0); // sloth's 0
     shader.SetUniform1i("uTexture", vec1(0));
     shader.SetUniform2f("uOffset", vec2(0.0f, 0.0f));
-    Renderer renderer;
+    Core::Renderer renderer;
 
     glfwSetFramebufferSizeCallback(window, [](GLFWwindow* window, int width, int height) {
         glViewport(0, 0, width, height);
