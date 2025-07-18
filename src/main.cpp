@@ -10,12 +10,6 @@
 #include <glm/gtc/matrix_transform.hpp>
 
 
-/*
-    TODO:
-    1/- now you have imgui, why not fucking using it??
-    2/- follow up with the cherno and how the FUCK he made that 'testing framework'
-*/
-
 int main() {
     using namespace glm; // why not? i mean i fucking hate seen stuff like: 'glm::vec2(...)'
 
